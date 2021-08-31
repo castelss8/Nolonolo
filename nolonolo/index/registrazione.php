@@ -29,32 +29,33 @@
         $emailUtente = $_POST['email'];
         $passwordUtente = $_POST['passwordUtente'];
         $passwordUtente = md5($passwordUtente);
-//        $dataNascitaUtente = $_POST['dataNascita'];
-//        $luogoNascitaUtente = $_POST['luogoNascita'];
-//        $recapitoUtente = $_POST['recapito'];
-//        $professione = $_POST['professione'];
-        $tipoUtente = 'Cliente';
+        $dataNascitaUtente = $_POST['dataNascita'];
+        $tipoUtente = "Cliente";
 
 
 
         try {
-            $sql = $pdo->prepare("INSERT INTO Utente VALUES (?, ?, ?, ?, ?, ?)");
-            $sql->bindParam(4, $emailUtente, PDO::PARAM_STR);
+            $sql = $pdo->prepare("INSERT INTO Utente VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $sql->bindParam(1, $username, PDO::PARAM_STR);
             $sql->bindParam(2, $nomeUtente, PDO::PARAM_STR);
             $sql->bindParam(3, $cognomeUtente, PDO::PARAM_STR);
-            $sql->bindParam(1, $username, PDO::PARAM_STR);
-            $sql->bindParam(6, $passwordUtente, PDO::PARAM_STR);
-//            $sql->bindParam(5, $dataNascitaUtente, PDO::PARAM_STR);
-//            $sql->bindParam(6, $luogoNascitaUtente, PDO::PARAM_STR);
-//            $sql->bindParam(7, $recapitoUtente, PDO::PARAM_INT);
+            $sql->bindParam(4, $emailUtente, PDO::PARAM_STR);
             $sql->bindParam(5, $tipoUtente, PDO::PARAM_STR);
+            $sql->bindParam(6, $passwordUtente, PDO::PARAM_STR);
+            $sql->bindParam(7, $dataNascitaUtente, PDO::PARAM_STR);
+            $date = date('Y-m-d H:i:s');
+            $sql->bindParam(8, $date, PDO::PARAM_STR);
             $res = $sql->execute();
-
         }catch(PDOException $e) {
             echo("Query SQL Failed: ".$e->getMessage());
             exit();
         }
 
+        if ($res>0){
+            echo "<script> window.alert('Richiesta processata correttamente!'); window.location.href='login.php'; </script>";
+        } else {
+            echo "<script> window.alert('NO'); window.location.href='registrazione.php'; </script>";
+        }
         /*if($res > 0){
             try {
                 $sql = $pdo->prepare("INSERT INTO Cliente VALUE (?)");
@@ -66,7 +67,7 @@
             }
 
             if($res > 0){
-                echo "<script> alert('Richiesta processata correttamente!'); window.location.href='login.php'; </script>";
+                echo "<script> window.alert('Richiesta processata correttamente!'); window.location.href='login.php'; </script>";
             }else
                 echo "<script> alert('La richiesta NON è stata processata correttamente!'); window.location.href='registrazione.php'; </script>";
             }*/
@@ -78,7 +79,7 @@
     <div class="container">
         <h2>Registrazione</h2>
         <div class="card-body">
-            <form method="post">
+            <form method="post" action="registrazione.php">
 
                 <div class="form-group input-group">
                     <input type="text" placeholder="Inserisci il tuo nome" class="form-control" name="nome" required>
@@ -100,9 +101,9 @@
                     <input type="password" placeholder="Inserisci la tua password" class="form-control" name="passwordUtente" minlength="6"  required>
                 </div>
 
-<!--                <div class="form-group input-group">-->
-<!--                    <input type="date" placeholder="Inserisci la tua data di nascita" class="form-control" name="dataNascita" required>-->
-<!--                </div>-->
+                <div class="form-group input-group">
+                    <input type="date" placeholder="Inserisci la tua data di nascita" class="form-control" name="dataNascita" required>
+                </div>
 <!---->
 <!--                <div class="form-group input-group">-->
 <!--                    <input type="text" placeholder="Inserisci il tuo luogo di nascita" class="form-control" name="luogoNascita" required>-->
