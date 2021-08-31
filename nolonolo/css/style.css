@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ html {
 }
 /******TOP NAVBAR*******/
 
-#topNav{
+.navbar-light{
   background: #eaebf0; 
   font-family: Prompt;
 }
@@ -22,6 +22,10 @@ html {
   color: black;
   font-size: 20px;
 }
+.navbar-dark .nav-link, .navbar-dark .navbar-brand{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+  }
 #topNav .navbar-toggler-icon{
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
@@ -29,14 +33,16 @@ html {
   border-color: transparent;
 }
 
-#topNav .closebtn{
+.closebtn{
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
   text-decoration: none;
+  border: none;
   color: black;
+  background: none;
 }
 .laptop{
   display: none;
@@ -53,7 +59,7 @@ html {
     height: 100%;
     background: rgb(255, 255, 255);
     text-decoration: none;
-    z-index: 2;
+    z-index: 200;
   }
   #topNav .nav-link{
     font-weight: 500;
@@ -81,24 +87,20 @@ html {
 }
 
 #topNav .areaPersonale{
-  color: rgb(255, 255, 255);
-  border-left: 1px solid rgba(70, 70, 70, 0.486);
+  color: #1e1e1e;
   display: none;
 }
 #topNav .areaPersonaleBtn{
-  background: rgb(152, 23, 185);
   padding: 10px;
   padding-left: 12px;
   padding-right: 12px;
   border-radius: 50%;
-  border: 1px solid #1e1e1e;
 }
 #topNav .carrello{
-  color: rgb(255, 255, 255);
+  color: #1e1e1e;
   display: none;
 }
 #topNav .carrelloBtn{
-  background: #1e1e1e;
   padding: 11px;
   padding-left: 11px;
   padding-right: 12px;
@@ -478,4 +480,86 @@ footer{
 
 #myBtn:hover {
   background-color: rgb(37, 37, 37);
+}
+
+
+
+
+
+.barcode{
+  color: white;
+  font-family: 'Libre Barcode 39 Text', cursive;
+  font-size: 40px
+}
+
+
+
+
+
+
+
+
+
+
+#myAccount-menu a{
+  color: black;
+  border-radius: 17px;
+}
+#myAccount-menu a.active{
+  background: black;
+  color: white;
+}
+
+.table>:not(caption)>*>*{
+  padding: 10px;
+}
+tbody, td, tfoot, th, thead, tr {
+  border-color: rgb(167, 167, 167);
+}
+table i{
+  color: white;
+}
+.accordion-button-icon{
+  background-image: none;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.accordion-button.collapsed::after {
+  background-image: none;
+  font-family: 'FontAwesome';
+  content: "\f044";
+}
+
+text{
+  font-size: 60px; font-weight: bold;
+}
+
+#myAccount-accordion button{
+  background: #eaebf0;
+}
+#myAccount-accordion .accordion-item{
+  background: #eaebf0;
+}
+
+.trashBtn{
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  font-size: 25px;
+  margin-left: 50px;
+  text-decoration: none;
+  border: none;
+  background: none;
+}
+
+#quarta .testoCentrato{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Montserrat',sans-serif;
+  color: white;
+  text-transform: uppercase;
 }
