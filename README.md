@@ -1,3 +1,3 @@
 # Nolonolo
 
-# IMPORTANTE: quando le pagine vanno salvate nella cartella index!!!!
+# IMPORTANTE: quando fate il push le pagine vanno salvate nella cartella index!!!!
