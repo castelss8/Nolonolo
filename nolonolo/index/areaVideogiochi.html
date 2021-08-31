@@ -67,7 +67,7 @@
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropdown10" data-bs-toggle="dropdown" aria-expanded="false">PRODOTTI</a>
                 <ul class="dropdown-menu" aria-labelledby="dropdown10">
-                  <li><a class="dropdown-item" href="areaVideogiochi.html"><img src="media/navLink2.png" alt=""class="img-fluid"> VIDEOGIOCHI</a></li>
+                  <li><a class="dropdown-item" href="#"><img src="media/navLink2.png" alt=""class="img-fluid"> VIDEOGIOCHI</a></li>
                   <li><a class="dropdown-item" href="#"><img src="media/navLink1.png" alt=""class="img-fluid"> VISORI</a></li>
                   <li><a class="dropdown-item" href="#"><img src="media/navLink3.png" alt=""class="img-fluid"> STATISTICHE</a></li>
                 </ul>
@@ -109,161 +109,82 @@
       </nav>
     </header>
     <main>
-      <section id="primaMobile">
-        <div class="container-fluid h-100">
+      <section id="third">
+        <h2>I nostri videogiochi</h2>
+        <div class="container">
           <div class="row">
-            <div class="col" >
-              <h2 class="titolo">SPERIMENTA L'INIMMAGINABILE</h2>
+            <div class="gallery-filter">
+              <span class="filter-item active" data-filter="all">Tutti</span>
+              <span class="filter-item" data-filter="avven">Avventura</span>
+              <span class="filter-item" data-filter="music">Musica</span>
+              <span class="filter-item" data-filter="action">Azione</span>
             </div>
-          </div>
-          <div class="row h-40">
-            <div class="col">
-              <img src="media/homeVisor.png" alt="" class="img-fluid">
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id="primaLaptop">
-        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="container h-100">
-                <div class="row h-100 justify-content-center align-items-center">
-                  <div class="col">
-                    <h2 class="primoTitolo">SPERIMENTA L'INIMMAGINABILE</h2>
-                    <img src="media/homeVisor.png" alt="" class="img-fluid">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="container h-100">
-                <div class="row h-100 justify-content-center align-items-center">
-                  <div class="col-md-7">
-                    <h2 class="secondoTitolo">Tutto è possibile</h2>
-                    <blockquote>I videogiochi in realtà virtuale ridefiniscono l'avventura, ridefiniscono l'esperienza umana, ridefiniscono qualsiasi cosa.</blockquote>
-                    <p><a href="" class="link">Chiedilo ai nostri clienti <i class="fas fa-arrow-right"></i></a></p>
-                  </div>
-                  <div class="col-md-5">
-                    <video src="media/homeVideo.mp4" autoplay muted loop></video><br><br>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </section>
-      <section id="seconda">
-        <div class="container h-100 ">
+          
+        <div class="container h-100" id="first">
           <div class="row h-100 justify-content-center align-items-center">
-            <div class="col-lg">
-              <h2>Tutto è possibile</h2>
-              <blockquote>I videogiochi in realtà virtuale ridefiniscono l'avventura, ridefiniscono l'esperienza umana, ridefiniscono qualsiasi cosa.</blockquote>
+            
+              <div class="col">
+                    <img class="card-img-top" src="media/1.png" alt="avven">
+                    <div class="content">
+                      <h5 class="card-title">Astro Bot</h5>
+                      <p class="card-text">31.25€</p>
+                      <a href="#" class="buttonc" id="botvideo">Aggiungi al carrello</a>
+                    </div>
+              </div>
+            <div class="col">
+                <img class="card-img-top" src="media/2.png" alt="action">
+                <div class="content">
+                  <h5 class="card-title">Iron Man</h5>
+                  <p class="card-text">31.25€</p>
+                  <a href="#" class="buttonc" id="botvideo">Aggiungi al carrello</a>
+                </div>
             </div>
-            <div class="col-lg">
-              <video src="media/homeVideo.mp4" autoplay muted loop></video><br><br>
-              <p><a href="">Chiedilo ai nostri clienti <i class="fas fa-arrow-right"></i></a></p>
+            <div class="col">
+                <img class="card-img-top" src="media/3.png" alt="music">
+                <div class="content">
+                  <h5 class="card-title">Beat Saber</h5>
+                  <p class="card-text">31.25€</p>
+                  <a href="#" class="buttonc" id="botvideo">Aggiungi al carrello</a>
+                </div>
+            </div>
+  
+          </div>
+        </div>
+        <div class="container h-100" id="first">
+          <div class="row h-100 justify-content-center align-items-center">
+            <div class="col">
+              <img class="card-img-top" src="media/4.png" alt="action">
+                
+              <div class="content">
+                <h5 class="card-title">Sniper Elite VR</h5>
+                <p class="card-text">31.25€</p>
+                <a href="#" class="buttonc" id="botvideo">Aggiungi al carrello</a>
+              </div>
+            </div>
+            <div class="col">
+        
+              <img class="card-img-top" src="media/5.png" alt="action">
+              <div class="content">
+                <h5 class="card-title">Afterlife</h5>
+                <p class="card-text">31.25€</p>
+                <a href="#" class="buttonc" id="botvideo">Aggiungi al carrello</a>
+              </div>
+            </div>
+            <div class="col">
+                <img class="card-img-top" src="media/5d.png" alt="action">
+                <div class="content">
+                  <h5 class="card-title">Resident Evil</h5>
+                  <p class="card-text">31.25€</p>
+                  <a href="#" class="buttonc" id="botvideo">Aggiungi al carrello</a>
+                </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+        
+    
       </section>
-      <!--<section id="terza">
-          <div class="container-fluid" style="background: #1e1e1e;">
-            <h2>Offerte a tempo limitato</h2>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/2.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Home Sweet Home</p>
-                    <p class="card-text prezzoScontato">31.25€ <span class="prezzoIntero">62.50€</span></p>
-                    <p class="card-text termine">Terminerà tra:<span id="primaOfferta"></span> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/4.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-      
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Marvel's Iron Man - PS VR</p>
-                    <p class="card-text prezzoScontato">39.99€ <span class="prezzoIntero">68.90€</span></p>
-                    <p class="card-text termine">Terminerà tra:<span id="secondaOfferta"></span> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/4.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-      
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Marvel's Iron Man - PS VR</p>
-                    <p class="card-text prezzoScontato">39.99€ <span class="prezzoIntero">68.90€</span></p>
-                    <p class="card-text termine">Terminerà tra:<span id="secondaOfferta"></span> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/3.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Astro Bot: Rescue Mission - PS VR</p>
-                    <p class="card-text prezzoScontato">19.99€ <span class="prezzoIntero">38.90€</span></p>
-                    <p class="card-text termine">Terminerà tra:<span id="terzaOfferta"></span></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="container-fluid" style="margin-top: 20px;">
-            <h2>BESTSELLERS</h2>
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/firstPlace.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Home Sweet Home</p>
-                    <p class="card-text prezzoScontato">31.25€ <span class="prezzoIntero">62.50€</span></p>
-                    <p class="card-text termine">Terminerà tra <span id="primaOfferta"></span> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/firstPlace.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-      
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Iron Man</p>
-                    <p class="card-text prezzoScontato">39.99€ <span class="prezzoIntero">68.90€</span></p>
-                    <p class="card-text termine">Terminerà tra <span id="secondaOfferta"></span> </p>
-                  </div>
-                </div>
-              </div>
-              <div class="col">
-                <div class="card shadow-sm">
-                  <a href="#"><img src="media/firstPlace.png" class="bd-placeholder-img card-img-top img-fluid" width="100%" height="225"></a>
-                  <div class="card-body">
-                    <p class="card-text nomeGioco">Astro Bot: Rescue Mission</p>
-                    <p class="card-text prezzoScontato">19.99€ <span class="prezzoIntero">38.90€</span></p>
-                    <p class="card-text termine">Terminerà tra <span id="terzaOfferta"></span> </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-      </section>-->
       <section id="quarta" style="background: #1e1e1e;">
         <div class="container">
           <h2>Statistiche</h2>
@@ -369,6 +290,71 @@
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
       }
+      </script>
+      <script>
+          $(document).ready(function(){
+            var submitIcon = $('.searchbox-icon');
+            var inputBox = $('.searchbox-input');
+            var searchBox = $('.searchbox');
+            var isOpen = false;
+            submitIcon.click(function(){
+                if(isOpen == false){
+                    searchBox.addClass('searchbox-open');
+                    inputBox.focus();
+                    isOpen = true;
+                } else {
+                    searchBox.removeClass('searchbox-open');
+                    inputBox.focusout();
+                    isOpen = false;
+                }
+            });  
+             submitIcon.mouseup(function(){
+                    return false;
+                });
+            searchBox.mouseup(function(){
+                    return false;
+                });
+            $(document).mouseup(function(){
+                    if(isOpen == true){
+                        $('.searchbox-icon').css('display','block');
+                        submitIcon.click();
+                    }
+                });
+        });
+            function buttonUp(){
+                var inputVal = $('.searchbox-input').val();
+                inputVal = $.trim(inputVal).length;
+                if( inputVal !== 0){
+                    $('.searchbox-icon').css('display','none');
+                } else {
+                    $('.searchbox-input').val('');
+                    $('.searchbox-icon').css('display','block');
+                }
+            }
+      </script>
+      <script>
+        const filterContainer = document.querySelector(".gallery-filter"),
+        galleryItems = document.querySelectorAll(".gallery-item");
+
+        filterContainer.addEventListener("click", (event) =>{
+        if(event.target.classList.contains("filter-item")){
+          // deactivate existing active 'filter-item'
+          filterContainer.querySelector(".active").classList.remove("active");
+          // activate new 'filter-item'
+          event.target.classList.add("active");
+          const filterValue = event.target.getAttribute("data-filter");
+          galleryItems.forEach((item) =>{
+            if(item.classList.contains(filterValue) || filterValue === 'all'){
+              item.classList.remove("hide");
+              item.classList.add("show");
+            }
+            else{
+              item.classList.remove("show");
+              item.classList.add("hide");
+            }
+   	 });
+   }
+ });
       </script>
   </body>
 </html>
