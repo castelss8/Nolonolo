@@ -13,59 +13,41 @@ html {
   scroll-behavior: smooth;
 }
 /******TOP NAVBAR*******/
-
-.navbar-light{
-  background: #eaebf0; 
+#topNav{
+  background: #eaebf0;
   font-family: Prompt;
 }
 #topNav .nav-link, #topNav .navbar-brand{
   color: black;
   font-size: 20px;
 }
-.navbar-dark .nav-link, .navbar-dark .navbar-brand{
-    color: rgb(255, 255, 255);
-    font-size: 20px;
-  }
 #topNav .navbar-toggler-icon{
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(0, 0, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 #topNav .navbar-toggler {
   border-color: transparent;
 }
-
-.closebtn{
+#topNav .dropdown-menu{
+  border: 1px solid transparent;
+}
+#topNav .closebtn{
   position: absolute;
   top: 0;
   right: 25px;
   font-size: 36px;
-  margin-left: 50px;
   text-decoration: none;
-  border: none;
   color: black;
-  background: none;
 }
 .laptop{
   display: none;
 }
+
 @media(max-width: 767px){
   #topNav .navbar-collapse {
     position: fixed;
-    top: 0;
     left: 0;
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-top: 45px;
-    width: 90%;
-    height: 100%;
     background: rgb(255, 255, 255);
-    text-decoration: none;
     z-index: 200;
-  }
-  #topNav .nav-link{
-    font-weight: 500;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.589);
-    margin-bottom: 10px;
-    padding-bottom: 10px;
   }
   #topNav .navbar-collapse.collapsing {
     left: -75%;
@@ -75,74 +57,48 @@ html {
     left: 0;
     transition: left 300ms ease-in-out;
   }
-  #topNav .navbar-collapse.show img{
-    filter: grayscale(100%);
-  }
   #topNav .navbar-toggler.collapsed ~ .navbar-collapse {
     transition: left 500ms ease-in-out;
   }
-  #topNav .dropdown-menu{
-    border: 1px solid transparent;
-  }
 }
 
-#topNav .areaPersonale{
-  color: #1e1e1e;
+#topNav .areaPersonale, #topNav .carrello{
+  color: rgb(0, 0, 0);
   display: none;
-}
-#topNav .areaPersonaleBtn{
-  padding: 10px;
-  padding-left: 12px;
-  padding-right: 12px;
-  border-radius: 50%;
-}
-#topNav .carrello{
-  color: #1e1e1e;
-  display: none;
-}
-#topNav .carrelloBtn{
-  padding: 11px;
-  padding-left: 11px;
-  padding-right: 12px;
-  border-radius: 50%;
-
 }
 /*************************/
 
 
 /********BOTTOM NAV********/
-
 #bottomNav{
   background: transparent;
 }
 #bottomNav .nav-link{
   border-radius: 30px;
-  background: white;
-  border: 1px solid #6b6b6b8f;
+  background-color: white;
 }
-#bottomNav .areaP{
-  background-color: rgb(0, 140, 255);
-  border-radius: 50%;
-}
-#bottomNav .laterale{
-  color: black;
-}
-#bottomNav i{
+#bottomNav .nav-link i{
+  color: #1e1e1e;
   padding-left: 10px;
   padding-right: 10px;
 }
-#bottomNav .center{
-  background-color: #1e1e1e;
-  border-radius: 30px;
+#bottomNav .link-areaP{
+  background-color: rgb(0, 140, 255);
 }
-#bottomNav .scrollBtn{
-  padding-right: 20px;
-  padding-left: 20px;
-}
-#bottomNav .areaBtn{
+#bottomNav .link-areaP i{
   padding-left: 5px;
   padding-right: 5px;
   color: white;
+}
+#bottomNav .link-areaP i, #bottomNav .link-centrale i{
+  color: white;
+}
+#bottomNav .link-centrale{
+  background-color: #1e1e1e;
+}
+#bottomNav .link-centrale i{
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 @media (min-width: 767px) {

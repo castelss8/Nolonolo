@@ -40,7 +40,7 @@
               $tipoUtente= $row['tipo'];
               $_SESSION['TipoUtente']=$tipoUtente;
           }catch(PDOException $e){echo $e->getMessage();}
-            header('Location: home.html');
+            header('Location: ../index.php');
       }else
           echo "<script> alert('I dati non risultano corretti, sicuro di esserti registrato?'); window.location.href='login.php'; </script>";
   }

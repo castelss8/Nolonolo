@@ -14,10 +14,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href="dashboard.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/dashboard.css">
   </head>
   <body>
+  <?php
+      require 'pages/connection.php';
+      //echo $_SESSION['EmailUtente'];
+      if($_SESSION['EmailUtente'] == null){
+          $_SESSION['TipoUtente']="";
+          $_SESSION['EmailUtente']="";
+      }
+      //echo $_SESSION['EmailUtente'];
+  ?>
     <header>
       <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fas fa-arrow-up"></i></button>
       <nav class="navbar navbar-expand-md navbar-light" id="topNav">
@@ -49,6 +58,7 @@
           <a class="nav-link areaPersonale" href="myAccount-profilo.html"><i class="fas fa-user areaPersonaleBtn"></i></a>
         </div>
       </nav>
+
       <nav class="navbar fixed-bottom navbar-expand navbar-dark" id="bottomNav">
         <div class="container">
           <div class="collapse navbar-collapse">
@@ -63,10 +73,11 @@
                 <a class="nav-link  border shadow-smactive rounded-pill link-centrale" href="#topNav"><i class="fas fa-eye"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  border shadow-sm navLink" href="#"><i class="fas fa-shopping-cart laterale"></i></a>
+                <a class="nav-link  border shadow-sm navLink" href="#"><i class="fas fa-shopping-cart"></i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  border shadow-sm link-areaP rounded-circle" href="myAccount-profilo.html"><i class="fas fa-user"></i></a> <!--se è gia loggato vai in profilo.html se no vai a login.php-->
+                <a class="nav-link  border shadow-sm link-areaP rounded-circle"
+                   href="<?php $page = ($_SESSION['EmailUtente']=='') ? 'pages/login.php' : 'pages/myAccount-profilo.html'; echo $page; ?>"><i class="fas fa-user"></i></a> <!--se è gia loggato vai in profilo.html se no vai a login.php-->
               </li>
             </ul>
           </div>
