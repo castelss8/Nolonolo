@@ -62,7 +62,7 @@
         <div class="form-group">
           <button type="submit" name='login' id='login' class="btn btn-primary btn-block"> Login  </button>
         </div>
-        <p class="text-center">Non hai un'account? <a href="../registrazione/registrazione.php">Registrati!</a> </p>
+        <p class="text-center">Non hai un'account? <a href="registrazione.php">Registrati!</a> </p>
 
       </form>
       </div>

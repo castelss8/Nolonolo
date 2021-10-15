@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>nolonolo/account/ordini</title>
+    <title>nolonolo/account/metodi-di-pagamento</title>
     <meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--DUBLINCORE-->
-		<meta NAME="DC.Title" CONTENT="nolonolo/account/ordini">
+		<meta NAME="DC.Title" CONTENT="nolonolo/account/metodi-di-pagamento">
 		<meta NAME="DC.Creator" CONTENT="Forieri Elena, Castelli Giorgia, Cassanelli Alice">
-		<meta NAME="DC.Subject" CONTENT="Ordini degli iscritti">
-		<meta NAME="DC.Description" CONTENT="Area di salvataggio e visualizzazione degli ordini effettuati sulla piattaforma riservata agli iscritti">
+		<meta NAME="DC.Subject" CONTENT="Metodi di pagamento degli iscritti">
+		<meta NAME="DC.Description" CONTENT="Area di salvataggio dei metodi di pagamento riservata agli iscritti">
 		<meta NAME="DC.Date" CONTENT="2021/08/19">
 		<meta NAME="DC.Language" CONTENT="Italiano">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,6 +16,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="dashboard.css">
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -38,16 +42,6 @@
     #myAccount-accordion h2{
       font-size: 17px;
     }
-    .filterDiv {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
-
-
     </style>
 
     
@@ -130,31 +124,31 @@
        
         <ul class="nav flex-column mt-4">
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-profilo.html">
+            <a class="nav-link" href="myAccount-profilo.php">
               <i class="fas fa-user me-2"></i>
               Profilo
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link active">
+            <a class="nav-link" href="myAccount-ordini.php">
               <i class="fas fa-shopping-basket me-2"></i>
               Ordini
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-indirizzi.html">
+            <a class="nav-link" href="myAccount-indirizzi.php">
               <i class="fas fa-map-pin me-2"></i>
               Indirizzi
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-pagamento.html">
+            <a class="nav-link active" aria-current="page">
                 <i class="fas fa-wallet me-2"></i>
               Metodi di pagamento
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-coupon.html">
+            <a class="nav-link" href="myAccount-coupon.php">
               <i class="fas fa-percentage me-2"></i>
               Coupon
             </a>
@@ -166,7 +160,7 @@
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-notifiche.html">
+            <a class="nav-link" href="myAccount-notifiche.php">
               <i class="fas fa-bell me-2"></i>
               Notifiche
             </a>
@@ -189,7 +183,7 @@
         
           <div class="dropdown d-flex align-items-center justify-content-center" style="width: 100%;">
             <button class="btn btn-secondary dropdown-toggle btn-lg d-flex justify-content-between align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%; background: #1e1e1e; border-radius: 30px;">
-              <span><i class="fas fa-shopping-basket me-2"></i>I tuoi ordini</span>
+              <span><i class="fas fa-wallet me-2"></i>Metodi di pagamento</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="
               max-height: 150px;
@@ -197,160 +191,91 @@
               width: 100%;
               background: #1e1e1e;
           ">
-          <li><a class="dropdown-item" href="myAccount-profilo.html"><i class="fas fa-user me-2"></i> Profilo</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fas fa-history me-2"></i> Noleggi</a></li>
-              <li><a class="dropdown-item" href="myAccount-indirizzi.html"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
-              <li><a class="dropdown-item" href="myAccount-pagamento.html"></a><i class="fas fa-wallet me-2"></i>Metodi di pagamento</li>
-              <li><a class="dropdown-item" href="myAccount-coupon.html"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
-              
+          <li><a class="dropdown-item" href="myAccount-profilo.php"><i class="fas fa-user me-2"></i> Profilo</a></li>
+              <li><a class="dropdown-item" href="myAccount-ordini.php"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
+              <li><a class="dropdown-item" href="myAccount-indirizzi.php"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
+              <li><a class="dropdown-item" href="myAccount-coupon.php"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i> Lista dei desideri</a></li>
-              <li><a class="dropdown-item" href="myAccount-notifiche.html"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
+              <li><a class="dropdown-item" href="myAccount-notifiche.php"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
             </ul>
           </div>
       </div>
-
-      <div class="container mt-5"id="myAccount">
-        <div id="myBtnContainer" class="btn-group">
-          <button class="btn btn-secondary btn-sm active" onclick="filterSelection('all')">Tutti</button>
-          <button class="btn btn-secondary btn-sm" onclick="filterSelection('spedito')"> Spediti</button>
-          <button class="btn btn-secondary btn-sm" onclick="filterSelection('consegnato')"> Consegnati</button>
-          <button class="btn btn-secondary btn-sm" onclick="filterSelection('attivo')"> Attivi</button>
-          <button class="btn btn-secondary btn-sm" onclick="filterSelection('scaduto')"> Scaduti</button>
-        </div>
-          <div class="row row-cols-lg-1 mt-4">
-            
-            <div class="filterDiv spedito consegnato attivo col shadow border p-lg-5" style="background: white;">
-                <div class="row mt-3 mt-lg-0">
-                    <div class="d-flex justify-content-start align-items-center mb-3">
-                        <div class="mb-lg-2">
-                            <i class="fas fa-truck-moving me-4" style="font-size: 50px;"></i>
-                        </div>
+      
+      <div class="container p-2" id="myAccount">
+        <div class="row mb-2 row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col-md">
+              <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm mb-4 h-md-250 position-relative" style="background: white;">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <div class="card-text mb-auto">
+                      <div class="wrapper d-flex justify-content-start align-items-center mb-3">
+                        
                         <div class="mb-2">
-                            <span style="font-size: 20px; font-weight: bold;" class="me-1">COD.</span><span style="font-size: 20px; font-weight: bold;">4738NCEJ</span>
-                        </div>
+                            <i class="fab fa-cc-visa me-2" style="font-size: 50px;"></i>
+                          </div>
+                          <div class="mb-2">
+                            <span style="font-size: 20px; font-weight: bold;" class="me-3">Visa</span><span style="font-size: 20px; font-weight: bold;">**** 5462</span>
+                          </div>
+                      </div>
+                    
+                    <div class=" mb-2">
+                      <span>Scade a </span><span> novambre 2022 </span>
                     </div>
+                    
+                    <div class="d-flex justify-content-end align-items-center mt-4">
+                          <button type="button" class="btn btn-sm"  style="color: rgb(0, 0, 0); font-size: 20px;" ><i class="fas fa-trash-alt"></i></button>
+                        
+                      </div>
+                  </div>
                 </div>
-                <div class="row row-cols-lg-3 row-cols-1">
-                    <div class="col d-flex flex-column mb-3 mb-lg-0" style="line-height: 10px; border-right: 1px solid rgb(170, 170, 170);">
-                        <h6 class="mb-3">DETTAGLI ORDINE </h6> 
-                        <p>Data dell'ordine: <span> 13/01/2009 </span></p>
-                        <p>Stato dell'ordine: <span> Spedito </span></p>
-                        <p>Stato della spedizione: <span> Consegnato </span></p>
-                        <p>Data di consegna: <span> 20/01/2009 </span></p>
-                    </div>
-                    <div class="col mb-3 mb-lg-0" style="line-height: 10px; border-right: 1px solid rgb(170, 170, 170);">
-                        <h6 class="mb-3">INDIRIZZO DI FATTURAZIONE</h6>
-                        <p><span>ELENA FORIERI</span></p>
-                        <p><span>VIA FRATELLI PINARDI 22</span></p>
-                        <p><span>BOLOGNA</span></p>
-                        <p><span>ITALIA</span></p>
-                    </div>
-                    <div class="col mb-3 mb-lg-0" style="line-height: 10px;">
-                        <h6 class="mb-3">METODO DI PAGAMENTO</h6>
-                        <p><span>CARTA DI CREDITO</span></p>
-                        <p>Importo: <span>38,90</span></p>
-                    </div>
-                </div>
-              <hr>
-              <div class="oggettoSpedizione">
-                  <h6 class="mb-3">DETTAGLI DEL NOLEGGIO </h6> 
-                  <div class="table-responsive">
-                  <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Articolo</th>
-                        <th scope="col">Cod.</th>
-                        <th scope="col">Inizio</th>
-                        <th scope="col">Fine</th>
-                        <th scope="col">Stato</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Iron Man</td>
-                        <td>46JHCHED80</td>
-                        <td>27/02/2020</td>
-                        <td>30/03/2020</td>
-                        <td>Restituito</td>
-                      </tr>
-                      <tr class="table-success">
-                        <td>Astro Bot</td>
-                        <td>746HGEDNDC</td>
-                        <td>29/08/2021</td>
-                        <td>09/10/2021</td>
-                        <td>In prestito</td>
-                      </tr>
-                      
-                      <td>Iron Man</td>
-                      <td>46JHCHED80</td>
-                      <td>27/02/2020</td>
-                      <td>30/03/2020</td>
-                      <td>Restituito</td>
-                      <tr>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                
               </div>
             </div>
-          </div>
-        
+            <div class="col-md d-flex justify-content-center align-items-center">
+                <button type="button" class="btn btn-lg  rounded-pill pe-4 ps-4" style="position: absolute; background: #d0cad4; color: white; font-size: 17px;"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Aggiungi un metodo di pagamento</button>
+            </div>
+            
       </div>
-      
-        
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="background:#d0cad4">
+        <div class="offcanvas-header mt-2 d-flex justify-content-end">
+         
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <form action="" class="p-3">
+            <h5 class="modal-title mb-4">Inserisci un metodo di pagamento</h5>
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control" id="floatingInput" placeholder="pippo" style="border: none;">
+              <label for="floatingInput">Inserisci il numero della carta</label>
+            </div>
+            <div class="form-floating mb-4">
+              <select class="form-select form-control" id="floatingSelect" aria-label="Floating label select example"style="border: none;">
+                <option selected>Visa</option>
+                <option value="1">Mastercard</option>
+                <option value="1">Postepay</option>
+              </select>
+              <label for="floatingSelect">Seleziona il tipo di carta</label>
+            </div>
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control" id="floatingCity" placeholder="bologna" style="border: none;">
+              <label for="floatingCity">Inserisci il numero di sicurezza</label>
+            </div>
+            <div class="form-floating mb-4">
+              <input type="month" class="form-control" id="floatingCity" style="border: none;">
+              <label for="floatingCity">Inserisci la data di scadenza</label>
+            </div>
+            <button type="submit" class="btn rounded-pill" style="background: #1e1e1e; color: white;">Conferma</button>
+          </form>
+        </div>
+      </div>
+      </div>
       
     </main>
   </div>
 </div>
-<script>
-    filterSelection("all")
-    function filterSelection(c) {
-      var x, i;
-      x = document.getElementsByClassName("filterDiv");
-      if (c == "all") c = "";
-      for (i = 0; i < x.length; i++) {
-        w3RemoveClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
-      }
-    }
-    
-    function w3AddClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
-      }
-    }
-    
-    function w3RemoveClass(element, name) {
-      var i, arr1, arr2;
-      arr1 = element.className.split(" ");
-      arr2 = name.split(" ");
-      for (i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-          arr1.splice(arr1.indexOf(arr2[i]), 1);     
-        }
-      }
-      element.className = arr1.join(" ");
-    }
-    
-    // Add active class to the current button (highlight it)
-    var btnContainer = document.getElementById("myBtnContainer");
-    var btns = btnContainer.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function(){
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace(" active", "");
-        this.className += " active";
-      });
-    }
-    </script>
-    
-    <script src="https://kit.fontawesome.com/7ae4aad1cd.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+<script src="https://kit.fontawesome.com/7ae4aad1cd.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
 </html>

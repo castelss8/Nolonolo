@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>nolonolo/account/indirizzi</title>
+    <title>nolonolo/account/notifiche</title>
     <meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--DUBLINCORE-->
 		<meta NAME="DC.Title" CONTENT="nolonolo">
 		<meta NAME="DC.Creator" CONTENT="Forieri Elena, Castelli Giorgia, Cassanelli Alice">
-		<meta NAME="DC.Subject" CONTENT="Indirizzi di fatturazione degli iscritti">
-		<meta NAME="DC.Description" CONTENT="Area di salvataggio e descrizione degli indirizzi di fatturazione riservata agli iscritti">
+		<meta NAME="DC.Subject" CONTENT="Notifiche di sistema dagli amministratori agli iscritti">
+		<meta NAME="DC.Description" CONTENT="Area di visualizzazione e lettura delle notifiche riservata agli iscritti">
 		<meta NAME="DC.Date" CONTENT="2021/08/19">
 		<meta NAME="DC.Language" CONTENT="Italiano">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -38,7 +38,6 @@
     #myAccount-accordion h2{
       font-size: 17px;
     }
-    
     </style>
 
     
@@ -92,7 +91,6 @@
           <div class="mb-3">
             <p style="font-size: 10px;">Ti mancano 100 punti per aggiudicarti il prossimo buono sconto.</p>
           </div>
-          
           <button type="submit" class="w-100 p-2 d-flex justify-content-between align-items-center" style="border: 1px solid black; background: #d0cad4; color: #1e1e1e; font-weight: bold;"data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fas fa-barcode" style="font-size: 40px;"></i> VISUALIZZA LA TUA CARTA FEDELTÀ
           </button>
@@ -122,31 +120,31 @@
        
         <ul class="nav flex-column mt-4">
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-profilo.html">
+            <a class="nav-link" href="myAccount-profilo.php">
               <i class="fas fa-user me-2"></i>
               Profilo
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-ordini.html">
+            <a class="nav-link" href="myAccount-ordini.php">
               <i class="fas fa-shopping-basket me-2"></i>
               Ordini
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link active" aria-current="page">
+            <a class="nav-link" href="myAccount-indirizzi.php">
               <i class="fas fa-map-pin me-2"></i>
               Indirizzi
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-pagamento.html">
-              <i class="fab fa-cc-visa me-2"></i>
+            <a class="nav-link" href="myAccount-pagamento.php">
+                <i class="fas fa-wallet me-2"></i>
               Metodi di pagamento
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-coupon.html">
+            <a class="nav-link" href="myAccount-coupon.php">
               <i class="fas fa-percentage me-2"></i>
               Coupon
             </a>
@@ -158,7 +156,7 @@
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-notifiche.html">
+            <a class="nav-link active" aria-current="page">
               <i class="fas fa-bell me-2"></i>
               Notifiche
             </a>
@@ -181,7 +179,7 @@
         
           <div class="dropdown d-flex align-items-center justify-content-center" style="width: 100%;">
             <button class="btn btn-secondary dropdown-toggle btn-lg d-flex justify-content-between align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%; background: #1e1e1e; border-radius: 30px;">
-              <span><i class="fas fa-map-pin me-2"></i> I tuoi indirizzi</span>
+              <span><i class="fas fa-bell me-2"></i></i>Le tue notifiche</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="
               max-height: 150px;
@@ -189,93 +187,53 @@
               width: 100%;
               background: #1e1e1e;
           ">
-          <li><a class="dropdown-item" href="myAccount-profilo.html"><i class="fas fa-user me-2"></i> Profilo</a></li>
-              <li><a class="dropdown-item" href="myAccount-ordini.html"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
-              <li><a class="dropdown-item" href="myAccount-pagamento.html"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
-              <li><a class="dropdown-item" href="myAccount-coupon.html"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
+          <li><a class="dropdown-item" href="myAccount-profilo.php"><i class="fas fa-user me-2"></i> Profilo</a></li>
+              <li><a class="dropdown-item" href="myAccount-ordini.php"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
+              <li><a class="dropdown-item" href="myAccount-indirizzi.php"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
+              <li><a class="dropdown-item" href="myAccount-pagamento.php"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
+              <li><a class="dropdown-item" href="myAccount-coupon.php"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i> Lista dei desideri</a></li>
-              <li><a class="dropdown-item" href="myAccount-notifiche.html"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
             </ul>
           </div>
       </div>
+      <div class="container">
+        <div class="row notification-container d-flex flex-column mt-5">
+            <p style="width:100%; text-align:center; border-bottom: 1px solid #000; line-height:0.1em; margin:10px 0 20px;"><span style="background:#eaebf0; padding:0 10px;">Oggi</span></p>
+            <div class="card notification-card notification-invitation mb-3 w-100">
+              <div class="card-body d-flex align-items-center justify-content-start">
+                  <div class="card-text me-3 me-lg-5">
+                      <img src="STAFF.png" alt="" height="80px" width="80px">
+                  </div>
+                  <div class="card-text">
+                      Gentile member, le confermiamo che l'ordine numero 4658393 è andato a buon fine.
+                  </div>
+              </div>
+            </div>
+            <div class="card notification-card notification-invitation mb-3 w-100">
+                <div class="card-body d-flex align-items-center justify-content-start">
+                    <div class="card-text  me-3 me-lg-5">
+                        <img src="STAFF.png" alt="" height="80px" width="80px">
+                    </div>
+                    <div class="card-text">
+                        Ci siamo, è iniziata la stagione dei saldi. Noleggia i tuoi videgiochi preferiti ad un prezzo imbattibile!
+                    </div>
+                </div>
+              </div>
+          <p style="width:100%; text-align:center; border-bottom: 1px solid #000; line-height:0.1em; margin:10px 0 20px;"><span style="background:#eaebf0; padding:0 10px;">28/08/2021</span></p>
+          <div class="card notification-card notification-invitation mb-3 w-100">
+            <div class="card-body d-flex align-items-center justify-content-start">
+                <div class="card-text  me-3 me-lg-5">
+                    <img src="STAFF.png" alt="" height="80px" width="80px">
+                </div>
+                <div class="card-text">
+                    Gentile member, benvenuto nel nostro TEAM. Visita la sezione dei coupon per assicurarti tutti i vantaggi come neo-iscritto!
+                </div>
+            </div>
+          </div>
+      </div>
       
-      <div class="container p-2" id="myAccount">
-        <div class="row mb-2 row-cols-1 row-cols-lg-1 align-items-stretch g-4 py-5">
-            <div class="col-md">
-              <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm mb-4 h-md-250 position-relative" style="background: white;">
-                <div class="col p-4 d-flex flex-column position-static">
-                  <button class="trashBtn"><i class="fas fa-trash-alt"></i></button>
-                  <strong class="d-inline-block mb-3">Numero 1</strong>
-                  <div class="card-text mb-auto">
-                    <div class="myAccount-username mb-2">
-                      <span class="me-2"><i class="fas fa-home"></i></span><span> Via Fratelli Pinardi 22</span>
-                    </div>
-                    <div class="myAccount-email mb-2">
-                      <span class="me-2"><i class="fas fa-map-pin"></i></span><span>Bologna</span>
-                    </div>
-                    <div class="myAccount-email mb-2">
-                      <span class="me-2"><i class="fas fa-globe-europe"></i></span><span>Italia</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative" style="background: white;">
-                <div class="col p-4 d-flex flex-column position-static">
-                  <button class="trashBtn"><i class="fas fa-trash-alt"></i></button>
-                  <strong class="d-inline-block mb-3">Numero 2</strong>
-                  <div class="card-text mb-auto">
-                    <div class="myAccount-username mb-2">
-                      <span class="me-2"><i class="fas fa-home"></i></span><span> Via Roncaglio 40</span>
-                    </div>
-                    <div class="myAccount-email mb-2">
-                      <span class="me-2"><i class="fas fa-map-pin"></i></span><span>Bologna</span>
-                    </div>
-                    <div class="myAccount-email mb-2">
-                      <span class="me-2"><i class="fas fa-globe-europe"></i></span><span>Italia</span>
-                    </div>
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            <div class="col-md d-flex justify-content-center align-items-center">
-                  <button type="button" class="btn btn-lg  rounded-pill pe-4 ps-4" style="position: absolute; background: #d0cad4; color: white; font-size: 17px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Aggiungi un nuovo indirizzo</button>
-              </div>
-             
-            </div>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="background:#d0cad4">
-              <div class="offcanvas-header mt-2 d-flex justify-content-end">
-               
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-              <div class="offcanvas-body">
-                <form action="" class="p-3">
-                  <h5 class="modal-title mb-4">Inserisci un indirizzo</h5>
-                  <div class="form-floating mb-4">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="pippo" style="border: none;">
-                    <label for="floatingInput">Inserisci la via e il numero civico</label>
-                  </div>
-                  <div class="form-floating mb-4">
-                    <input type="text" class="form-control" id="floatingCity" placeholder="bologna" style="border: none;">
-                    <label for="floatingCity">Inserisci la città</label>
-                  </div>
-                  <div class="form-floating mb-4">
-                    <select class="form-select form-control" id="floatingSelect" aria-label="Floating label select example"style="border: none;">
-                      <option selected>Italia</option>
-                      <option value="1">San Marino</option>
-                    </select>
-                    <label for="floatingSelect">Seleziona il paese</label>
-                  </div>
-
-                  <button type="submit" class="btn rounded-pill" style="background: #1e1e1e; color: white;">Conferma</button>
-                </form>
-              </div>
-            </div>
-      </div>
-      </div>
+    </div>
       
     </main>
   </div>
@@ -284,6 +242,8 @@
 <script src="https://kit.fontawesome.com/7ae4aad1cd.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
-  </body>
+  
+    </body>
 </html>

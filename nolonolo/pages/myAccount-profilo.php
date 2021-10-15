@@ -45,6 +45,31 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
   <body>
+  <?php
+    require 'connection.php';
+    $email = $_SESSION['EmailUtente'];
+    global $pdo;
+
+     try{
+
+         $sql = "SELECT *
+                    FROM utente
+                    WHERE email = '" . $email . "'";
+         $res = $pdo -> query($sql);
+
+     }catch(PDOException $e){echo $e->getMessage();}
+
+            while ($row = $res->fetch()) {
+                $username = $row['username'];
+                $nome = $row['nome'];
+                $cognome = $row['cognome'];
+                $email = $row['email'];
+                $tipo = $row['tipo'];
+                $passwordUtente = $row['passwordUtente'];
+                $dataNascita = $row['dataNascita'];
+                $dataRegistrazione = $row['dataRegistrazione'];
+            }
+  ?>
     
 <header>
   <nav class="navbar navbar-expand-md navbar-light pb-4" id="topNav">
@@ -81,7 +106,7 @@
   <div class="row">
     <div class="col-lg-2 mt-lg-4 mt-3 " id="carta-fedelta">
       <div class="wrapper">
-        <h5>GENTILE Member</h5>
+        <h5>GENTILE <?php echo $username?></h5>
         <div class="carta p-2" style="background: #d0cad4;">
           <div class="mb-3">
             <h3><span>0</span> punti</h3>
@@ -124,25 +149,25 @@
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-ordini.html">
+            <a class="nav-link" href="myAccount-ordini.php">
               <i class="fas fa-shopping-basket me-2"></i>
               Ordini
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-indirizzi.html">
+            <a class="nav-link" href="myAccount-indirizzi.php">
               <i class="fas fa-map-pin me-2"></i>
               Indirizzi
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-pagamento.html">
+            <a class="nav-link" href="myAccount-pagamento.php">
               <i class="fab fa-cc-visa me-2"></i>
               Metodi di pagamento
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-coupon.html">
+            <a class="nav-link" href="myAccount-coupon.php">
               <i class="fas fa-percentage me-2"></i>
               Coupon
             </a>
@@ -154,14 +179,14 @@
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-notifiche.html">
+            <a class="nav-link" href="myAccount-notifiche.php">
               <i class="fas fa-bell me-2"></i>
               Notifiche
             </a>
           </li>
           
           <li class="nav-item mb-2">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="logout.php">
               <i class="fas fa-sign-out-alt me-2"></i>
               Logout
             </a>
@@ -185,13 +210,13 @@
               width: 100%;
               background: #1e1e1e;
           ">
-              <li><a class="dropdown-item" href="myAccount-ordini.html"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
-              <li><a class="dropdown-item" href="myAccount-indirizzi.html"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
-              <li><a class="dropdown-item" href="myAccount-pagamento.html"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
-              <li><a class="dropdown-item" href="myAccount-coupon.html"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
+              <li><a class="dropdown-item" href="myAccount-ordini.php"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
+              <li><a class="dropdown-item" href="myAccount-indirizzi.php"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
+              <li><a class="dropdown-item" href="myAccount-pagamento.php"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
+              <li><a class="dropdown-item" href="myAccount-coupon.php"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i> Lista dei desideri</a></li>
-              <li><a class="dropdown-item" href="myAccount-notifiche.html"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+              <li><a class="dropdown-item" href="myAccount-notifiche.php"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
+              <li><a class="dropdown-item" href="logout.php"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
             </ul>
           </div>
       </div>
@@ -211,18 +236,18 @@
                     <h2 class="accordion-header" id="flush-headingOne">
                       Nome
                       <button class="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                        Elena
+                        <?php echo $nome?>
                       </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body mb-3">
-                        <form action="">
+                        <form action="myAccountForm/cambiaNome.php" method="post">
                           <div class="row g-3 align-items-center">
                             <div class="col-auto">
                               <label for="labelForInputCognome" class="col-form-label">Digita il tuo nuovo nome: </label>
                             </div>
                             <div class="col-auto">
-                              <input type="text" id="inputNome" class="form-control">
+                              <input type="text" id="inputNome" name="inputNome" class="form-control">
                             </div>
                             <div class="col-auto">
                               <button type="submit" class="formBtn">Conferma</button>
@@ -236,18 +261,18 @@
                     <h2 class="accordion-header" id="flush-headingOneB">
                       Cognome
                       <button class="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOneB" aria-expanded="false" aria-controls="flush-collapseOneB">
-                        Forieri
+                          <?php echo $cognome?>
                       </button>
                     </h2>
                     <div id="flush-collapseOneB" class="accordion-collapse collapse" aria-labelledby="flush-headingOneB" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body mb-3">
-                        <form action="">
+                        <form action="myAccountForm/cambiaCognome.php" method="post">
                           <div class="row g-3 align-items-center">
                             <div class="col-auto">
                               <label for="labelForInputCognome" class="col-form-label">Digita il tuo nuovo cognome:</label>
                             </div>
                             <div class="col-auto">
-                              <input type="text" id="inputCognome" class="form-control" placeholder="Rossi">
+                              <input type="text" id="inputCognome" name="inputCognome" class="form-control" placeholder="Rossi">
                             </div>
                             <div class="col-auto">
                               <button type="submit" class="formBtn">Conferma</button>
@@ -261,18 +286,19 @@
                     <h2 class="accordion-header" id="flush-headingThree">
                       Data di nascita
                       <button class="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                        19/11/98
+                          <?php echo date('d-m-Y', strtotime($dataNascita));
+                          ?>
                       </button>
                     </h2>
                     <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body mb-3">
-                        <form action="">
+                        <form action="myAccountForm/cambiaData.php" method="post">
                           <div class="row g-3 align-items-center">
                             <div class="col-auto">
                               <label for="labelForInputCognome" class="col-form-label">Seleziona la tua data di nascita:</label>
                             </div>
                             <div class="col-auto">
-                              <input type="date" id="inputCognome" class="form-control">
+                              <input type="date" id="inputData" name="inputData" class="form-control">
                             </div>
                             <div class="col-auto">
                               <button type="submit" class="formBtn">Conferma</button>
@@ -286,18 +312,18 @@
                     <h2 class="accordion-header" id="flush-headingTwo">
                       Email
                       <button class="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                       elena.forieri@libero.it
+                          <?php echo $email?>
                       </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body mb-3">
-                        <form action="">
+                        <form action="myAccountForm/cambiaEmail.php" method="post">
                           <div class="row g-3 align-items-center">
                             <div class="col-auto">
                               <label for="labelForInputCognome" class="col-form-label">Digita la tua nuova e-mail:</label>
                             </div>
                             <div class="col-auto">
-                              <input type="email" id="inputCognome" class="form-control" placeholder="n.c@esempio.it" aria-describedby="emailHelp">
+                              <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="n.c@esempio.it" aria-describedby="emailHelp">
                             </div>
                             <div class="col-auto">
                               <button type="submit"class="formBtn">Conferma</button>
@@ -312,18 +338,18 @@
                     <h2 class="accordion-header" id="flush-headingFour">
                       Username
                       <button class="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-                        Elish
+                          <?php echo $username?>
                       </button>
                     </h2>
                     <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body mb-3">
-                        <form action="">
+                        <form action="myAccountForm/cambiaUser.php" method="post">
                           <div class="row g-3 align-items-center">
                             <div class="col-auto">
                               <label for="labelForInputCognome" class="col-form-label">Digita il tuo nuovo username:</label>
                             </div>
                             <div class="col-auto">
-                              <input type="text" id="inputCognome" class="form-control" placeholder="pippi">
+                              <input type="text" id="inputUsername" name="inputUsername" class="form-control" placeholder="pippi">
                             </div>
                             <div class="col-auto">
                               <button type="submit" class="formBtn">Conferma</button>
@@ -337,28 +363,28 @@
                     <h2 class="accordion-header" id="flush-headingFive">
                       Password
                       <button class="accordion-button collapsed mt-1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
-                        **************
+                          *********
                       </button>
                     </h2>
                     <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                       <div class="accordion-body mb-3">
-                        <form action="">
+                        <form action="myAccountForm/cambiaPw.php" method="post">
 
                           <div class="mb-3">
                             <div class="mb-3">
                               <label for="exampleInputPassword1" class="form-label">Inserisci la vecchia password</label>
-                              <input type="password" class="form-control" id="exampleInputPassword1">
+                              <input type="password" class="form-control" id="exampleInputPassword1" name="pw">
                             </div>
                           </div>
                           <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Inserisci la nuova password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="new_pw1">
                             <span id="help" class="form-text">La password deve contenere almeno 5 caratteri alfanumerici.</span>
                           </div>
                           
                           <div class="mb-3">
                             <label for="exampleInputPassword1" class="form-label">Conferma la nuova password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <input type="password" class="form-control" id="exampleInputPassword1" name="new_pw2">
                             <span id="help" class="form-text">Questa password deve coincidere con la precedente.</span>
                           </div>
                           <button type="submit" class="formBtn">Conferma</button>

@@ -45,6 +45,39 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
   <body>
+  <?php
+      require 'connection.php';
+      $email = $_SESSION['EmailUtente'];
+      global $pdo;
+
+      try{
+          $sql = "SELECT *
+                        FROM utente
+                        WHERE email = '" . $email . "'";
+          $res = $pdo -> query($sql);
+
+      }catch(PDOException $e){echo $e->getMessage();}
+
+      while ($row = $res->fetch()) {
+          $username = $row['username'];
+          $nome = $row['nome'];
+          $cognome = $row['cognome'];
+          $email = $row['email'];
+          $tipo = $row['tipo'];
+          $passwordUtente = $row['passwordUtente'];
+          $dataNascita = $row['dataNascita'];
+          $dataRegistrazione = $row['dataRegistrazione'];
+      }
+
+  try{
+      $sql = "SELECT punti FROM cartafedelta
+            WHERE email = '$email';";
+      $res = $pdo -> query($sql);
+      $row = $res->fetch();
+      $punti = $row['punti'];
+
+  }catch(PDOException $e){echo $e->getMessage();}
+  ?>
     
 <header>
   <nav class="navbar navbar-expand-md navbar-light pb-4" id="topNav">
@@ -52,7 +85,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" href="#">NOLONOLO</a>
+        <a class="navbar-brand" href="../index.php">NOLONOLO</a>
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
         <a class="closebtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">&times;</a>
         <ul class="navbar-nav">
@@ -73,7 +106,7 @@
         </ul>
       </div>
       <a class="nav-link carrello" href=""><i class="fas fa-shopping-cart carrelloBtn"></i></a>
-      <a class="nav-link areaPersonale" href=""><i class="fas fa-user areaPersonaleBtn"></i></a>
+      <a class="nav-link areaPersonale" href="myAccount-profilo.php"><i class="fas fa-user areaPersonaleBtn"></i></a>
     </div>
   </nav>
 </header>
@@ -81,13 +114,13 @@
   <div class="row">
     <div class="col-lg-2 mt-lg-4 mt-3 " id="carta-fedelta">
       <div class="wrapper">
-        <h5>GENTILE Member</h5>
+        <h5>GENTILE <?php echo $username?></h5>
         <div class="carta p-2" style="background: #d0cad4;">
           <div class="mb-3">
-            <h3><span>0</span> punti</h3>
+            <h3><span><?php echo $punti?></span> punti</h3>
           </div>
           <div class="mb-3">
-            <p style="font-size: 10px;">Ti mancano 100 punti per aggiudicarti il prossimo buono sconto.</p>
+            <p style="font-size: 10px;">Ti mancano <?php echo (100-$punti) ?> punti per aggiudicarti il prossimo buono sconto.</p>
           </div>
           <button type="submit" class="w-100 p-2 d-flex justify-content-between align-items-center" style="border: 1px solid black; background: #d0cad4; color: #1e1e1e; font-weight: bold;"data-bs-toggle="modal" data-bs-target="#exampleModal">
             <i class="fas fa-barcode" style="font-size: 40px;"></i> VISUALIZZA LA TUA CARTA FEDELTÀ
@@ -118,31 +151,31 @@
        
         <ul class="nav flex-column mt-4">
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-profilo.html">
+            <a class="nav-link" href="myAccount-profilo.php">
               <i class="fas fa-user me-2"></i>
               Profilo
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-ordini.html">
+            <a class="nav-link" href="myAccount-ordini.php">
               <i class="fas fa-shopping-basket me-2"></i>
               Ordini
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-indirizzi.html">
+            <a class="nav-link" href="myAccount-indirizzi.php">
               <i class="fas fa-map-pin me-2"></i>
               Indirizzi
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-pagamento.html">
+            <a class="nav-link" href="myAccount-pagamento.php">
               <i class="fab fa-cc-visa me-2"></i>
               Metodi di pagamento
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-coupon.html">
+            <a class="nav-link" href="myAccount-coupon.php">
               <i class="fas fa-percentage me-2"></i>
               Coupon
             </a>
@@ -154,7 +187,7 @@
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-notifiche.html">
+            <a class="nav-link" href="myAccount-notifiche.php">
               <i class="fas fa-bell me-2"></i>
               Notifiche
             </a>
@@ -185,12 +218,12 @@
               width: 100%;
               background: #1e1e1e;
           ">
-          <li><a class="dropdown-item" href="myAccount-profilo.html"><i class="fas fa-user me-2"></i> Profilo</a></li>
-              <li><a class="dropdown-item" href="myAccount-ordini.html"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
-              <li><a class="dropdown-item" href="myAccount-indirizzi.html"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
-              <li><a class="dropdown-item" href="myAccount-pagamento.html"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
-              <li><a class="dropdown-item" href="myAccount-coupon.html"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
-              <li><a class="dropdown-item" href="myAccount-notifiche.html"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
+          <li><a class="dropdown-item" href="myAccount-profilo.php"><i class="fas fa-user me-2"></i> Profilo</a></li>
+              <li><a class="dropdown-item" href="myAccount-ordini.php"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
+              <li><a class="dropdown-item" href="myAccount-indirizzi.php"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
+              <li><a class="dropdown-item" href="myAccount-pagamento.php"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
+              <li><a class="dropdown-item" href="myAccount-coupon.php"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
+              <li><a class="dropdown-item" href="myAccount-notifiche.php"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
             </ul>
           </div>

@@ -20,11 +20,8 @@
   <body>
   <?php
       require 'pages/connection.php';
+      global $pdo;
       //echo $_SESSION['EmailUtente'];
-      if($_SESSION['EmailUtente'] == null){
-          $_SESSION['TipoUtente']="";
-          $_SESSION['EmailUtente']="";
-      }
       //echo $_SESSION['EmailUtente'];
   ?>
     <header>
@@ -77,7 +74,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link  border shadow-sm link-areaP rounded-circle"
-                   href="<?php $page = ($_SESSION['EmailUtente']=='') ? 'pages/login.php' : 'pages/myAccount-profilo.html'; echo $page; ?>"><i class="fas fa-user"></i></a> <!--se è gia loggato vai in profilo.html se no vai a login.php-->
+                   href="<?php $page = (isset($_SESSION['EmailUtente'])) ? 'pages/myAccount-profilo.php' : 'pages/login.php'; echo $page; ?>"><i class="fas fa-user"></i></a> <!--se è gia loggato vai in profilo.html se no vai a login.php-->
               </li>
             </ul>
           </div>

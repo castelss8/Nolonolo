@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>nolonolo/account/metodi-di-pagamento</title>
+    <title>nolonolo/account/coupon</title>
     <meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--DUBLINCORE-->
-		<meta NAME="DC.Title" CONTENT="nolonolo/account/metodi-di-pagamento">
+		<meta NAME="DC.Title" CONTENT="nolonolo/coupon">
 		<meta NAME="DC.Creator" CONTENT="Forieri Elena, Castelli Giorgia, Cassanelli Alice">
-		<meta NAME="DC.Subject" CONTENT="Metodi di pagamento degli iscritti">
-		<meta NAME="DC.Description" CONTENT="Area di salvataggio dei metodi di pagamento riservata agli iscritti">
+		<meta NAME="DC.Subject" CONTENT="Coupon per gli iscritti">
+		<meta NAME="DC.Description" CONTENT="Descrizione dei buoni sconto riservati agli iscritti">
 		<meta NAME="DC.Date" CONTENT="2021/08/19">
 		<meta NAME="DC.Language" CONTENT="Italiano">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -16,10 +16,6 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="dashboard.css">
-    
-
-    <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -48,7 +44,6 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   </head>
   <body>
     
@@ -58,7 +53,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-        <a class="navbar-brand" href="#">NOLONOLO</a>
+        <a class="navbar-brand" href="../index.php">NOLONOLO</a>
       <div class="collapse navbar-collapse justify-content-md-center" id="navbarCollapse">
         <a class="closebtn" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">&times;</a>
         <ul class="navbar-nav">
@@ -124,43 +119,43 @@
        
         <ul class="nav flex-column mt-4">
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-profilo.html">
+            <a class="nav-link" href="myAccount-profilo.php">
               <i class="fas fa-user me-2"></i>
               Profilo
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-ordini.html">
+            <a class="nav-link" href="myAccount-ordini.php">
               <i class="fas fa-shopping-basket me-2"></i>
               Ordini
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-indirizzi.html">
+            <a class="nav-link" href="myAccount-indirizzi.php">
               <i class="fas fa-map-pin me-2"></i>
               Indirizzi
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link active" aria-current="page">
-                <i class="fas fa-wallet me-2"></i>
+            <a class="nav-link" href="myAccount-pagamento.php">
+              <i class="fab fa-cc-visa me-2"></i>
               Metodi di pagamento
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-coupon.html">
+            <a class="nav-link active" aria-current="page">
               <i class="fas fa-percentage me-2"></i>
               Coupon
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="myAccount-desideri.php">
               <i class="fas fa-heart me-2"></i>
               Lista dei desideri
             </a>
           </li>
           <li class="nav-item mb-2">
-            <a class="nav-link" href="myAccount-notifiche.html">
+            <a class="nav-link" href="myAccount-notifiche.php">
               <i class="fas fa-bell me-2"></i>
               Notifiche
             </a>
@@ -183,7 +178,7 @@
         
           <div class="dropdown d-flex align-items-center justify-content-center" style="width: 100%;">
             <button class="btn btn-secondary dropdown-toggle btn-lg d-flex justify-content-between align-items-center" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%; background: #1e1e1e; border-radius: 30px;">
-              <span><i class="fas fa-wallet me-2"></i>Metodi di pagamento</span>
+              <span><i class="fas fa-percentage me-2"></i> I tuoi coupon</span>
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="
               max-height: 150px;
@@ -191,91 +186,67 @@
               width: 100%;
               background: #1e1e1e;
           ">
-          <li><a class="dropdown-item" href="myAccount-profilo.html"><i class="fas fa-user me-2"></i> Profilo</a></li>
-              <li><a class="dropdown-item" href="myAccount-ordini.html"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
-              <li><a class="dropdown-item" href="myAccount-indirizzi.html"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
-              <li><a class="dropdown-item" href="myAccount-coupon.html"><i class="fas fa-percentage me-2"></i> Coupon</a></li>
-              <li><a class="dropdown-item" href="#"><i class="fas fa-heart me-2"></i> Lista dei desideri</a></li>
-              <li><a class="dropdown-item" href="myAccount-notifiche.html"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
+          <li><a class="dropdown-item" href="myAccount-profilo.php"><i class="fas fa-user me-2"></i> Profilo</a></li>
+              <li><a class="dropdown-item" href="myAccount-ordini.php"><i class="fas fa-shopping-basket me-2"></i> Ordini</a></li>
+              <li><a class="dropdown-item" href="myAccount-indirizzi.php"><i class="fas fa-map-pin me-2"></i> Indirizzi</a></li>
+              <li><a class="dropdown-item" href="myAccount-pagamento.php"> <i class="fab fa-cc-visa me-2"></i> Metodi di pagamento</a></li>
+              <li><a class="dropdown-item" href="myAccount-desideri.php"><i class="fas fa-heart me-2"></i> Lista dei desideri</a></li>
+              <li><a class="dropdown-item" href="myAccount-notifiche.php"><i class="fas fa-bell me-2"></i> Notifiche</a></li>
               <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
             </ul>
           </div>
       </div>
       
       <div class="container p-2" id="myAccount">
-        <div class="row mb-2 row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-            <div class="col-md">
-              <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm mb-4 h-md-250 position-relative" style="background: white;">
-                <div class="col p-4 d-flex flex-column position-static">
-                  <div class="card-text mb-auto">
-                      <div class="wrapper d-flex justify-content-start align-items-center mb-3">
-                        
-                        <div class="mb-2">
-                            <i class="fab fa-cc-visa me-2" style="font-size: 50px;"></i>
-                          </div>
-                          <div class="mb-2">
-                            <span style="font-size: 20px; font-weight: bold;" class="me-3">Visa</span><span style="font-size: 20px; font-weight: bold;">**** 5462</span>
-                          </div>
-                      </div>
-                    
-                    <div class=" mb-2">
-                      <span>Scade a </span><span> novambre 2022 </span>
-                    </div>
-                    
-                    <div class="d-flex justify-content-end align-items-center mt-4">
-                          <button type="button" class="btn btn-sm"  style="color: rgb(0, 0, 0); font-size: 20px;" ><i class="fas fa-trash-alt"></i></button>
-                        
-                      </div>
+        <div class="row row-cols-1 row-cols-lg-3 g-4 py-5">
+          <div class="col-md">
+            <div class="card shadow">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="white"/><text x="50%" y="50%" fill="red" dy=".3em">-15%</text></svg>
+            
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="codice" style="border: 2px dotted black; padding: 10px; background: white; color: #1e1e1e; font-weight: bold;">
+                    <span>A123FGH</span>
                   </div>
+                  <div class="card-text">sull'articolo meno caro</div>
                 </div>
-                
               </div>
             </div>
-            <div class="col-md d-flex justify-content-center align-items-center">
-                <button type="button" class="btn btn-lg  rounded-pill pe-4 ps-4" style="position: absolute; background: #d0cad4; color: white; font-size: 17px;"  data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">Aggiungi un metodo di pagamento</button>
+          </div>
+          <div class="col-md">
+            <div class="card shadow">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="white"/><text x="50%" y="50%" fill="red" dy=".3em">-100%</text></svg>
+  
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="codice" style="border: 2px dotted black; padding: 10px; background: white; color: white;color: #1e1e1e; font-weight: bold;">
+                    <span>B321GHF</span>
+                  </div>
+                  <div class="card-text">sui costi di spedizione</div>
+                </div>
+              </div>
             </div>
-            
+          </div>
+          <div class="col-md">
+            <div class="card shadow">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="white"/><text x="50%" y="50%" fill="red" dy=".3em">-20%</text></svg>
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="codice" style="border: 2px dotted black; padding: 10px; background: white; color: white;color: #1e1e1e; font-weight: bold;">
+                    <span>C456FET</span>
+                  </div>
+                  <div class="card-text">su tutto il carrello</div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" style="background:#d0cad4">
-        <div class="offcanvas-header mt-2 d-flex justify-content-end">
-         
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <form action="" class="p-3">
-            <h5 class="modal-title mb-4">Inserisci un metodo di pagamento</h5>
-            <div class="form-floating mb-4">
-              <input type="text" class="form-control" id="floatingInput" placeholder="pippo" style="border: none;">
-              <label for="floatingInput">Inserisci il numero della carta</label>
-            </div>
-            <div class="form-floating mb-4">
-              <select class="form-select form-control" id="floatingSelect" aria-label="Floating label select example"style="border: none;">
-                <option selected>Visa</option>
-                <option value="1">Mastercard</option>
-                <option value="1">Postepay</option>
-              </select>
-              <label for="floatingSelect">Seleziona il tipo di carta</label>
-            </div>
-            <div class="form-floating mb-4">
-              <input type="text" class="form-control" id="floatingCity" placeholder="bologna" style="border: none;">
-              <label for="floatingCity">Inserisci il numero di sicurezza</label>
-            </div>
-            <div class="form-floating mb-4">
-              <input type="month" class="form-control" id="floatingCity" style="border: none;">
-              <label for="floatingCity">Inserisci la data di scadenza</label>
-            </div>
-            <button type="submit" class="btn rounded-pill" style="background: #1e1e1e; color: white;">Conferma</button>
-          </form>
-        </div>
-      </div>
-      </div>
-      
     </main>
   </div>
 </div>
 
 <script src="https://kit.fontawesome.com/7ae4aad1cd.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
 </html>

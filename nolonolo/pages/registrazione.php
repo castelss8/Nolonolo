@@ -31,9 +31,6 @@
         $passwordUtente = md5($passwordUtente);
         $dataNascitaUtente = $_POST['dataNascita'];
         $tipoUtente = "Cliente";
-
-
-
         try {
             $sql = $pdo->prepare("INSERT INTO Utente VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
             $sql->bindParam(1, $username, PDO::PARAM_STR);
@@ -51,11 +48,24 @@
             exit();
         }
 
+        try {
+            $sql = $pdo->prepare("INSERT INTO cartafedelta(emissione, email) VALUES (?, ?)");
+            $sql->bindParam(1, $date, PDO::PARAM_STR);
+            $sql->bindParam(2, $emailUtente, PDO::PARAM_STR);
+            $res = $sql->execute();
+        }catch(PDOException $e) {
+            echo("Query SQL Failed: ".$e->getMessage());
+            exit();
+        }
+
         if ($res>0){
             echo "<script> window.alert('Richiesta processata correttamente!'); window.location.href='login.php'; </script>";
         } else {
             echo "<script> window.alert('NO'); window.location.href='registrazione.php'; </script>";
         }
+
+
+
         /*if($res > 0){
             try {
                 $sql = $pdo->prepare("INSERT INTO Cliente VALUE (?)");
